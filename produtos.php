@@ -27,6 +27,20 @@ $produtos = [
         'preco' => 99.90,
         'imagem' => 'assets/images/poppy-playtime.jpg',
         'descricao' => 'Pelúcia do universo Poppy Playtime'
+    ],
+    [
+        'id' => 5,
+        'nome' => 'Pelúcia Catnap',
+        'preco' => 69.90,
+        'imagem' => 'assets/images/catnap.jpg',
+        'descricao' => 'Pelúcia do adorável Catnap'
+    ],
+    [
+        'id' => 6,
+        'nome' => 'Pelúcia Dogday',
+        'preco' => 74.90,
+        'imagem' => 'assets/images/dogday.jpg',
+        'descricao' => 'Pelúcia do divertido Dogday'
     ]
 ];
 ?>
@@ -35,7 +49,7 @@ $produtos = [
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tecny Geek Store - Seus Personagens Favoritos</title>
+    <title>Produtos - Tecny Geek Store</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
@@ -57,20 +71,15 @@ $produtos = [
     </header>
 
     <main>
-        <section class="banner">
-            <h1>Bem-vindo à Tecny Geek Store</h1>
-            <p>Encontre os pelúcias dos seus personagens favoritos!</p>
-            <a href="produtos.php" class="btn-primary">Ver Produtos</a>
-        </section>
-
-        <section class="destaques">
-            <h2>Produtos em Destaque</h2>
+        <section class="produtos-catalogo">
+            <h1>Nossos Produtos</h1>
             <div class="produtos-grid">
                 <?php foreach($produtos as $produto): ?>
                     <div class="produto-card">
                         <img src="<?php echo $produto['imagem']; ?>" alt="<?php echo $produto['nome']; ?>">
                         <h3><?php echo $produto['nome']; ?></h3>
                         <p>R$ <?php echo number_format($produto['preco'], 2, ',', '.'); ?></p>
+                        <p><?php echo $produto['descricao']; ?></p>
                         <button class="btn-adicionar-carrinho" data-produto-id="<?php echo $produto['id']; ?>">
                             Adicionar ao Carrinho
                         </button>
