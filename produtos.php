@@ -1,46 +1,48 @@
 <?php
+require_once 'config/database.php';
+
 $produtos = [
     [
         'id' => 1,
-        'nome' => 'Pelúcia Smiling Critters',
+        'nome' => 'Pelúcia Phoenica - Epithet Erased',
         'preco' => 79.90,
-        'imagem' => 'assets/images/smiling-critters.jpg',
-        'descricao' => 'Pelúcia oficial dos adoráveis Smiling Critters'
+        'imagem' => './imgs/Phoenica.png',
+        'descricao' => 'Pelúcia oficial de Epithet Erased'
     ],
     [
         'id' => 2,
-        'nome' => 'Pelúcia Huggy Wuggy',
-        'preco' => 89.90,
-        'imagem' => 'assets/images/huggy-wuggy.jpg',
-        'descricao' => 'Pelúcia do famoso personagem Huggy Wuggy'
+        'nome' => 'Hollow Knight Mini Figures',
+        'preco' => 59.90,
+        'imagem' => './imgs/Hollow_Knight_figures-removebg-preview.png',
+        'descricao' => 'Pequenos figurinos de Hollow Knight'
     ],
     [
         'id' => 3,
-        'nome' => 'Pelúcia Kissy Missy',
-        'preco' => 79.90,
-        'imagem' => 'assets/images/kissy-missy.jpg',
-        'descricao' => 'Pelúcia da adorável Kissy Missy'
+        'nome' => 'ENA Pop-Up',
+        'preco' => 109.90,
+        'imagem' => './imgs/Ena-removebg-preview.png',
+        'descricao' => 'Camiseta de ENA'
     ],
     [
         'id' => 4,
-        'nome' => 'Pelúcia Poppy Playtime',
+        'nome' => 'Chaveiro Kinger',
         'preco' => 99.90,
-        'imagem' => 'assets/images/poppy-playtime.jpg',
-        'descricao' => 'Pelúcia do universo Poppy Playtime'
+        'imagem' => './imgs/Kinger-removebg-preview.png',
+        'descricao' => 'Chaveiro de Kinger de The Amazing Digital Circus'
     ],
     [
         'id' => 5,
-        'nome' => 'Pelúcia Catnap',
-        'preco' => 69.90,
-        'imagem' => 'assets/images/catnap.jpg',
-        'descricao' => 'Pelúcia do adorável Catnap'
+        'nome' => 'Figura Rimuru',
+        'preco' => 119.90,
+        'imagem' => './imgs/Rimuru-removebg-preview.png',
+        'descricao' => 'Figurino de Rimuru'
     ],
     [
         'id' => 6,
-        'nome' => 'Pelúcia Dogday',
+        'nome' => 'Button Pin Bill Cipher',
         'preco' => 74.90,
-        'imagem' => 'assets/images/dogday.jpg',
-        'descricao' => 'Pelúcia do divertido Dogday'
+        'imagem' => './imgs/Bill-removebg-preview.png',
+        'descricao' => 'Pin do Bill Cipher'
     ]
 ];
 ?>
@@ -65,7 +67,7 @@ $produtos = [
                 <li><a href="produtos.php">Produtos</a></li>
                 <li><a href="carrinho.php">
                     <i class="fas fa-shopping-cart"></i> Carrinho 
-                    <span class="carrinho-contador">0</span>
+                    <span class="carrinho-contador"><?php echo obter_total_itens_carrinho(); ?></span>
                 </a></li>
             </ul>
         </nav>
@@ -93,7 +95,7 @@ $produtos = [
     <footer>
         <div class="footer-content">
             <div class="footer-logo">
-                <img src="assets/images/logo.png" alt="Tecny Geek Store">
+                <img src="./imgs/Tecny-removebg-preview.png" alt="Tecny Geek Store">
             </div>
             <div class="footer-links">
                 <h4>Links Rápidos</h4>

@@ -1,58 +1,9 @@
 <?php
-session_start();
+require_once 'config/database.php';
 
-// Inicializa o carrinho se não existir
-if (!isset($_SESSION['carrinho'])) {
-    $_SESSION['carrinho'] = [];
-}
-
-$produtos = [
-    [
-        'id' => 1,
-        'nome' => 'Pelúcia Smiling Critters',
-        'preco' => 79.90,
-        'imagem' => 'assets/images/smiling-critters.jpg'
-    ],
-    [
-        'id' => 2,
-        'nome' => 'Pelúcia Huggy Wuggy',
-        'preco' => 89.90,
-        'imagem' => 'assets/images/huggy-wuggy.jpg'
-    ],
-    [
-        'id' => 3,
-        'nome' => 'Pelúcia Kissy Missy',
-        'preco' => 79.90,
-        'imagem' => 'assets/images/kissy-missy.jpg'
-    ]
-];
-
-// Função para encontrar produto por ID
-function encontrarProduto($id, $produtos) {
-    foreach ($produtos as $produto) {
-        if ($produto['id'] == $id) {
-            return $produto;
-        }
-    }
-    return null;
-}
-
-// Calcular total do carrinho
-$total = 0;
-$itens_carrinho = [];
-
-foreach ($_SESSION['carrinho'] as $produto_id => $quantidade) {
-    $produto = encontrarProduto($produto_id, $produtos);
-    if ($produto) {
-        $subtotal = $produto['preco'] * $quantidade;
-        $total += $subtotal;
-        $itens_carrinho[] = [
-            'produto' => $produto,
-            'quantidade' => $quantidade,
-            'subtotal' => $subtotal
-        ];
-    }
-}
+$carrinho_dados = obter_itens_carrinho();
+$itens_carrinho = $carrinho_dados['itens'];
+$total = $carrinho_dados['total'];
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -75,7 +26,7 @@ foreach ($_SESSION['carrinho'] as $produto_id => $quantidade) {
                 <li><a href="produtos.php">Produtos</a></li>
                 <li><a href="carrinho.php">
                     <i class="fas fa-shopping-cart"></i> Carrinho 
-                    <span class="carrinho-contador"><?php echo count($_SESSION['carrinho']); ?></span>
+                    <span class="carrinho-contador"><?php echo obter_total_itens_carrinho(); ?></span>
                 </a></li>
             </ul>
         </nav>
@@ -94,17 +45,17 @@ foreach ($_SESSION['carrinho'] as $produto_id => $quantidade) {
                 <div class="itens-carrinho">
                     <?php foreach ($itens_carrinho as $item): ?>
                         <div class="item-carrinho">
-                            <img src="<?php echo $item['produto']['imagem']; ?>" alt="<?php echo $item['produto']['nome']; ?>">
+                            <img src="<?php echo $item['imagem']; ?>" alt="<?php echo $item['nome']; ?>">
                             <div class="item-detalhes">
-                                <h3><?php echo $item['produto']['nome']; ?></h3>
-                                <p>Preço: R$ <?php echo number_format($item['produto']['preco'], 2, ',', '.'); ?></p>
+                                <h3><?php echo $item['nome']; ?></h3>
+                                <p>Preço: R$ <?php echo number_format($item['preco'], 2, ',', '.'); ?></p>
                                 <div class="quantidade">
-                                    <button class="btn-diminuir" data-produto-id="<?php echo $item['produto']['id']; ?>">-</button>
+                                    <button class="btn-diminuir" data-produto-id="<?php echo $item['produto_id']; ?>">-</button>
                                     <span><?php echo $item['quantidade']; ?></span>
-                                    <button class="btn-aumentar" data-produto-id="<?php echo $item['produto']['id']; ?>">+</button>
+                                    <button class="btn-aumentar" data-produto-id="<?php echo $item['produto_id']; ?>">+</button>
                                 </div>
                                 <p>Subtotal: R$ <?php echo number_format($item['subtotal'], 2, ',', '.'); ?></p>
-                                <button class="btn-remover" data-produto-id="<?php echo $item['produto']['id']; ?>">Remover</button>
+                                <button class="btn-remover" data-produto-id="<?php echo $item['produto_id']; ?>">Remover</button>
                             </div>
                         </div>
                     <?php endforeach; ?>
@@ -122,7 +73,7 @@ foreach ($_SESSION['carrinho'] as $produto_id => $quantidade) {
     <footer>
         <div class="footer-content">
             <div class="footer-logo">
-                <img src="assets/images/logo.png" alt="Tecny Geek Store">
+                <img src="./imgs/Tecny-removebg-preview.png" alt="Tecny Geek Store">
             </div>
             <div class="footer-links">
                 <h4>Links Rápidos</h4>

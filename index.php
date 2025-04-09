@@ -1,32 +1,34 @@
 <?php
+require_once 'config/database.php';
+
 $produtos = [
     [
         'id' => 1,
-        'nome' => 'Pelúcia N',
+        'nome' => 'Pelúcia Phoenica - Epithet Erased',
         'preco' => 79.90,
-        'imagem' => 'assets/images/smiling-critters.jpg',
-        'descricao' => 'Pelúcia oficial de Murder Drones'
+        'imagem' => './imgs/Phoenica.png',
+        'descricao' => 'Pelúcia oficial de Epithet Erades'
     ],
     [
         'id' => 2,
-        'nome' => 'Pelúcia Huggy Wuggy',
-        'preco' => 89.90,
-        'imagem' => 'assets/images/huggy-wuggy.jpg',
-        'descricao' => 'Pelúcia do famoso personagem Huggy Wuggy'
+        'nome' => 'Hollow Knight Mini Figures',
+        'preco' => 59.90,
+        'imagem' => './imgs/Hollow_Knight_figures-removebg-preview.png',
+        'descricao' => 'Pequenos figurinos de Hollow Knight'
     ],
     [
         'id' => 3,
-        'nome' => 'Pelúcia Kissy Missy',
-        'preco' => 79.90,
-        'imagem' => 'assets/images/kissy-missy.jpg',
-        'descricao' => 'Pelúcia da adorável Kissy Missy'
+        'nome' => 'ENA Pop-Up',
+        'preco' => 109.90,
+        'imagem' => './imgs/Ena-removebg-preview.png',
+        'descricao' => 'Camiseta de ENA'
     ],
     [
         'id' => 4,
-        'nome' => 'Pelúcia Poppy Playtime',
+        'nome' => 'Chaveiro Kinger',
         'preco' => 99.90,
-        'imagem' => 'assets/images/poppy-playtime.jpg',
-        'descricao' => 'Pelúcia do universo Poppy Playtime'
+        'imagem' => './imgs/Kinger-removebg-preview.png',
+        'descricao' => 'Chaveiro de Kinger de The Amazing Digital Circus'
     ]
 ];
 ?>
@@ -35,7 +37,7 @@ $produtos = [
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tecny Geek Store - Início</title>
+    <title>Início - Tecny Geek Store</title>
     <link rel="icon" href="./imgs/Tecny__1_-removebg-preview.png" type="image/png">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -51,7 +53,7 @@ $produtos = [
                 <li><a href="produtos.php">Produtos</a></li>
                 <li><a href="carrinho.php">
                     <i class="fas fa-shopping-cart"></i> Carrinho 
-                    <span class="carrinho-contador">0</span>
+                    <span class="carrinho-contador"><?php echo obter_total_itens_carrinho(); ?></span>
                 </a></li>
             </ul>
         </nav>
