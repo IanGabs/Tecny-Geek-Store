@@ -2,10 +2,10 @@
 $produtos = [
     [
         'id' => 1,
-        'nome' => 'Pelúcia Smiling Critters',
+        'nome' => 'Pelúcia N',
         'preco' => 79.90,
         'imagem' => 'assets/images/smiling-critters.jpg',
-        'descricao' => 'Pelúcia oficial dos adoráveis Smiling Critters'
+        'descricao' => 'Pelúcia oficial de Murder Drones'
     ],
     [
         'id' => 2,
@@ -35,14 +35,15 @@ $produtos = [
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tecny Geek Store - Seus Personagens Favoritos</title>
+    <title>Tecny Geek Store - Início</title>
+    <link rel="icon" href="./imgs/Tecny__1_-removebg-preview.png" type="image/png">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
     <header>
         <div class="logo">
-            <img src="assets/images/logo.png" alt="Tecny Geek Store">
+            <img src="./imgs/Tecny-removebg-preview.png" alt="Tecny Geek Store">
         </div>
         <nav>
             <ul>
@@ -59,7 +60,7 @@ $produtos = [
     <main>
         <section class="banner">
             <h1>Bem-vindo à Tecny Geek Store</h1>
-            <p>Encontre os pelúcias dos seus personagens favoritos!</p>
+            <p>Encontre os produtos dos seus personagens favoritos!</p>
             <a href="produtos.php" class="btn-primary">Ver Produtos</a>
         </section>
 
@@ -83,7 +84,7 @@ $produtos = [
     <footer>
         <div class="footer-content">
             <div class="footer-logo">
-                <img src="assets/images/logo.png" alt="Tecny Geek Store">
+                <img src="./imgs/Tecny-removebg-preview.png" alt="Tecny Geek Store">
             </div>
             <div class="footer-links">
                 <h4>Links Rápidos</h4>
@@ -103,7 +104,7 @@ $produtos = [
             </div>
         </div>
         <div class="copyright">
-            © 2024 Tecny Geek Store. Todos os direitos reservados.
+            © 2025 Tecny Geek Store. Todos os direitos reservados.
         </div>
     </footer>
 

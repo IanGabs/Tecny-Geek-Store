@@ -60,13 +60,14 @@ foreach ($_SESSION['carrinho'] as $produto_id => $quantidade) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Carrinho - Tecny Geek Store</title>
+    <link rel="icon" href="./imgs/Tecny__1_-removebg-preview.png" type="image/png">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
     <header>
         <div class="logo">
-            <img src="assets/images/logo.png" alt="Tecny Geek Store">
+            <img src="./imgs/Tecny-removebg-preview.png" alt="Tecny Geek Store">
         </div>
         <nav>
             <ul>
@@ -141,7 +142,7 @@ foreach ($_SESSION['carrinho'] as $produto_id => $quantidade) {
             </div>
         </div>
         <div class="copyright">
-            © 2024 Tecny Geek Store. Todos os direitos reservados.
+            © 2025 Tecny Geek Store. Todos os direitos reservados.
         </div>
     </footer>
 
